@@ -11,6 +11,15 @@ Pre-requisites
 
 There are plenty other configrations that would work as well. That's just what I have used to create the example.
 
+Building it using Maven on commandline (optinal)
+-------------------------------------------------
+In case you want to give this a spin on the commandline first, make sure you build the parent project first:
+mvn clean install -N -f test-parent/pom.xml
+
+Then build everything in reactor:
+mvn clean install -f test-parent/pom.xml
+
+
 Setting up the workspace
 ------------------------
 
