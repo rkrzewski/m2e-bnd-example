@@ -5,6 +5,7 @@
     <groupId>test</groupId>
     <artifactId>test-parent</artifactId>
     <version>1.0.0</version>
+    <relativePath>../test-parent</relativePath>
   </parent>
   <artifactId>test-app</artifactId>
   <packaging>bundle</packaging>
