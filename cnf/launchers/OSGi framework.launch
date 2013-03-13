@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="bndtools.launch">
+<booleanAttribute key="clean" value="true"/>
+<booleanAttribute key="dynamicBundles" value="true"/>
+<stringAttribute key="launchTarget" value="test-app/run.bndrun"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="test-app"/>
+<booleanAttribute key="trace" value="false"/>
+</launchConfiguration>
