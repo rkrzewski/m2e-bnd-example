@@ -11,6 +11,7 @@
     <module>../test-api</module>
     <module>../test-impl</module>
     <module>../test-app</module>
+    <module>../test-it</module>
   </modules>
 
   <properties>
