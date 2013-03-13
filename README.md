@@ -7,7 +7,6 @@ Pre-requisites
 * EGit 2.2.0 http://download.eclipse.org/releases/juno
 * M2E 1.3.0 http://download.eclipse.org/releases/juno
 * Bndtools 2.0+ https://bndtools.ci.cloudbees.com/job/bndtools.master/386/artifact/bndtools.build/generated/p2/
-* M2E Tycho connector http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.6.0/N/0.6.0.201207302152/
 
 There are plenty other configrations that would work as well. That's just what I have used to create the example.
 
@@ -20,11 +19,12 @@ After starting eclipse, you should import the project. Use 'Import > General > E
 
 At this point you should be able to run an offline maven build starting with 'test-parent' project. Of course you can use 'Run As > Maven install' to do that from withing Eclipse.
 
-Next, you should use 'Add Bndtools project nature' on test-api, test-impl and test-app project. It's possible that a circullar dependency error will be reported on test-app project (this also happens after Eclipse restart). You can get rid of it using Run > Clean ...' on this project. It's irritating but harmless.
+Next, you should use 'Add Bndtools project nature' on test-api, test-impl and test-app project. This manual step is required because Bndtools does not have a m2e connctor plugin yet.
 
 Running the example
 -------------------
 
-Open test-app/bnd.bnd, go to Run tab and use 'Run OSGi' button. You should see the cheerful greeting offered by test.Greeter interface implemention provided by test.impl.GreeterImpl injected into test.app.GreeterClient class by Service Components Runtime, followed by Gogo shell prompt.
+The project provides two predefined launchers: 'OSGi framework' will use test-app/run.bndrun to run the application live from the workspace. You should see the cheerful greeting offered by test.Greeter interface implemention provided by test.impl.GreeterImpl injected into test.app.GreeterClient class by Service Components Runtime, followed by Gogo shell prompt.
 
+'Integration test' launcher will run tests in 'test-it' module. The tests are using Pax-Exam, JUnit 4 and Mockito and demostrate basic testing of SCR components. Note that when the tests are launched using JDT JUnit runner they will provision bundles built incrementally by bndtools into the test environment. When run by maven-surefire-plugin as a part of Maven build (eiter outside of Eclipse, or when using 'Run as > Maven Test', bundles built by maven-bundle-plugin will be used instead.
 
